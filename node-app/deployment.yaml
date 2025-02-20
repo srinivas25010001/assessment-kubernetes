@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-apache-deployment
+  labels:
+    app: node-apache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-apache
+  template:
+    metadata:
+      labels:
+        app: node-apache
+    spec:
+      containers:
+      - name: node-app
+        image: srinivas0001/node-app1:latest
+        ports:
+        - containerPort: 80
